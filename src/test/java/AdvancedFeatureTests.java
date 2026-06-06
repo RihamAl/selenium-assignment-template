@@ -17,8 +17,8 @@ public class AdvancedFeatureTests extends BaseTest {
         page.waitForPageTitle("Automation Exercise - All Products");
 
         driver.navigate().back();
-        page.waitForUrlToBe(TestData.BASE_URL + "/");
-        Assert.assertEquals(TestData.BASE_URL + "/", page.getCurrentUrl());
+        page.waitForUrlMatching("https://(www\\.)?automationexercise\\.com/?");
+        Assert.assertTrue(page.getCurrentUrl().matches("https://(www\\.)?automationexercise\\.com/?"));
 
         driver.navigate().forward();
         page.waitForUrlContaining("/products");

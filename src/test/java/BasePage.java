@@ -135,6 +135,10 @@ public class BasePage {
         wait.until(ExpectedConditions.urlContains(urlPart));
     }
 
+    public void waitForUrlMatching(String regex) {
+        wait.until(ExpectedConditions.urlMatches(regex));
+    }
+
     public String getCurrentUrl() {
         return driver.getCurrentUrl();
     }
