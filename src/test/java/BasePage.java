@@ -127,6 +127,14 @@ public class BasePage {
         wait.until(ExpectedConditions.titleIs(title));
     }
 
+    public void waitForUrlToBe(String url) {
+        wait.until(ExpectedConditions.urlToBe(url));
+    }
+
+    public void waitForUrlContaining(String urlPart) {
+        wait.until(ExpectedConditions.urlContains(urlPart));
+    }
+
     public String getCurrentUrl() {
         return driver.getCurrentUrl();
     }

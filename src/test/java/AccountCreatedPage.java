@@ -24,4 +24,9 @@ public class AccountCreatedPage extends BasePage {
         driver.get(TestData.BASE_URL);
         return new HeaderComponent(driver);
     }
+
+    public AccountDeletedPage deleteCreatedAccount() {
+        driver.get(TestData.BASE_URL + "/delete_account");
+        return new AccountDeletedPage(driver);
+    }
 }

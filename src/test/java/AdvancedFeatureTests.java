@@ -17,11 +17,11 @@ public class AdvancedFeatureTests extends BaseTest {
         page.waitForPageTitle("Automation Exercise - All Products");
 
         driver.navigate().back();
-        page.waitForPageTitle("Automation Exercise");
+        page.waitForUrlToBe(TestData.BASE_URL + "/");
         Assert.assertEquals(TestData.BASE_URL + "/", page.getCurrentUrl());
 
         driver.navigate().forward();
-        page.waitForPageTitle("Automation Exercise - All Products");
+        page.waitForUrlContaining("/products");
         Assert.assertTrue(page.getCurrentUrl().contains("/products"));
     }
 
@@ -97,7 +97,7 @@ public class AdvancedFeatureTests extends BaseTest {
         HeaderComponent header = accountCreatedPage.continueToLoggedInHeader();
         Assert.assertTrue(header.getLoggedInUserText().contains("Selenium Student"));
 
-        AccountDeletedPage accountDeletedPage = header.deleteAccount();
+        AccountDeletedPage accountDeletedPage = accountCreatedPage.deleteCreatedAccount();
         Assert.assertTrue(accountDeletedPage.isAccountDeletedVisible());
     }
 
